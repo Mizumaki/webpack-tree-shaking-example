@@ -1,0 +1,25 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "transform-imports",
+      {
+        "lodash": {
+          "transform": "lodash/${member}",
+          "preventFullImport": true
+        },
+        "react-bootstrap": {
+          "transform": "react-bootstrap/lib/${member}",
+          "preventFullImport": true
+        }
+      }
+    ]
+  ]
+}
