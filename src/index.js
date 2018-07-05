@@ -1,3 +1,4 @@
+import { Row, Grid as MyGrid } from 'react-bootstrap';
 import {
   map,
   differenceWith,
@@ -6,7 +7,6 @@ import {
   dropRight,
   dropRightWhile,
 } from 'lodash';
-import { Row, Grid as MyGrid } from 'react-bootstrap';
-import { cube } from './math.js';
+import { moduleB } from './modules.js';
 
-console.log(cube(5));
+moduleB();
