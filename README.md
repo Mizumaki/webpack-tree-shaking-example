@@ -21,13 +21,13 @@ yarn
 ## Create bundles
 
 ```
-webpack --display-used-exports
+npm run build
 ```
 
 or
 
 ```
-npm run build
+yarn run build
 ```
 
 ## License
