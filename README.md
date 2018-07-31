@@ -1,10 +1,12 @@
 # webpack-tree-shaking-example
 
-解説記事はこちらをご覧ください。
+Sample Code taking advantage of Tree Shaking with webpack.
+
+To learn more about Tree Shaking with webpack, take a look at the following article (Japanese only).
 
 [webpack の Tree Shaking を理解する](https://qiita.com/soarflat/items/755bbbcd6eb81bd128c4)
 
-### インストール
+## Installation
 
 ```
 npm install
@@ -16,7 +18,7 @@ or
 yarn
 ```
 
-### バンドルされたファイルの出力
+## Create bundles
 
 ```
 webpack --display-used-exports
@@ -28,6 +30,6 @@ or
 npm run build
 ```
 
-### License
+## License
 
 [MIT](http://opensource.org/licenses/MIT)
