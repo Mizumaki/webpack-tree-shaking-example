@@ -22,6 +22,8 @@
   }
 ```
 
+**webpackは4系で試しています。3系でも試したところ、結構結果変わったので、注意してください。**
+
 ## テストしたもの
 かなりバリエーションに富んだ、import & export & default を試しました。以下の「単体export」は`export func, export func2`のようにexportだけを使ったもの、「単体でimport」は`import { func }`、「全体でimport」は`import * as hoge`で`hoge.func`を実行といった感じです。詳しくは、[ソースコード](https://github.com/Mizumaki/webpack-tree-shaking-example)見てください。
 
@@ -82,7 +84,7 @@ all.allA();
 お、all3.js以外はTree Shakingが効いていることがわかりました。
 
 ### テストからわかったこと1:オブジェクトでexportしてもTree Shakingは効く
-[アンチパターン検証記事](https://qiita.com/genshun9/items/4a00aa6c709b9f024821#export-default-オブジェクト)によれば、`export default object`ではTree Shakingが効かないとありましたが、**webpack4では効くよう**です。
+[アンチパターン検証記事](https://qiita.com/genshun9/items/4a00aa6c709b9f024821#export-default-オブジェクト)によれば、`export default object`ではTree Shakingが効かないとありましたが、**webpack4では効くよう**です。(※webpack3では、効かないですが！詳細は後述。)
 
 ### テストからわかったこと2:全体指定でexportしてもTree Shakingは効く
 個人的に気になっていたこととして、「`import * as all from './all';`として、その一部分しか使用しなかった場合に、Tree Shakingが効くのか否か」があります。
@@ -107,3 +109,13 @@ export default { all4A, all4B };
 ```
 
 ちなみに、構文的に`export * as all4 from './forAll3`などのようなことはできないみたいなので、これを実現したい場合は上記のように`export default`を使う必要があります。
+
+## webpack 3系で試すと全然違った
+かなり違いました。3系では、[アンチパターン検証記事](https://qiita.com/genshun9/items/4a00aa6c709b9f024821)が正しく、オブジェクトの場合は全くTree Shakingが効きません。object.js、object2.js、object3.jsが全滅でした。また同様に、all3.jsとall4.jsでもTree Shakingは効いていませんでした。
+
+3系でも効くのは、solo.jsとall.js、all2.jsのみでした。つまり、単体でimport/exportするか、直接`import * as all`などのようにimportする場合は、Tree Shakingが効くということです。
+
+自分で確認したい方は、[webpack3用にブランチを切った](https://github.com/Mizumaki/webpack-tree-shaking-example/tree/webpack3)ので、そちらをクローンし、ビルドしてください。その結果を[ここ](https://javascript-minifier.com/)でminifyすると、何がTree Shakingされるかが確認できます。
+
+## 結論
+[圧縮率も違う](https://qiita.com/nishiurahiroki/items/fba522604c0f52423158)みたいだし、webpack3からwebpack4に移行しましょう！！
