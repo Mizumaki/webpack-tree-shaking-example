@@ -1,0 +1,1 @@
+export { default as all4 } from './forAll4';

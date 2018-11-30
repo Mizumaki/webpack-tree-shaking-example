@@ -1,1 +1,3 @@
-export * from './all';
+export * from './forAll2';
+
+export * from './solo';

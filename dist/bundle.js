@@ -46,14 +46,29 @@
 }([function (e, n, o) {
   "use strict";
   o.r(n);
-  var t = function () {
-      return console.log("allA")
+  var t = {};
+  o.r(t), o.d(t, "all3A", function () {
+    return l
+  }), o.d(t, "all3B", function () {
+    return u
+  });
+  var r = function () {
+      return console.log("soloA")
     },
-    r = function () {
-      return console.log("objectA")
+    l = function () {
+      return console.log("all3A")
     },
     u = function () {
+      return console.log("all3B")
+    },
+    c = function () {
+      return console.log("all4A")
+    },
+    f = function () {
+      return console.log("objectA")
+    },
+    i = function () {
       return console.log("object2A")
     };
-  console.log("soloA"), t(), t(), r(), u(), console.log("foo")
+  r(), console.log("allA"), console.log("all2A"), r(), t.all3A(), c(), f(), i(), console.log("foo")
 }]);
