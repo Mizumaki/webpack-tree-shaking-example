@@ -85,3 +85,25 @@ all.allA();
 [アンチパターン検証記事](https://qiita.com/genshun9/items/4a00aa6c709b9f024821#export-default-オブジェクト)によれば、`export default object`ではTree Shakingが効かないとありましたが、**webpack4では効くよう**です。
 
 ### テストからわかったこと2:全体指定でexportしてもTree Shakingは効く
+個人的に気になっていたこととして、「`import * as all from './all';`として、その一部分しか使用しなかった場合に、Tree Shakingが効くのか否か」があります。
+
+結果としては、**Tree Shaking は効いていました**。こうなってくると、多量にexportが存在するファイルでは、`*`でimportしてそこから呼び出した方が気持ちよくなりますね。
+
+### テストからわかったこと3:1クッションおいてexportしたい場合は`export { default as name }`を使う
+今回の実験の目的として、これがありました。ReactとReduxのファイル構成パターンである[re-ducks](https://github.com/alexnm/re-ducks)などで構成が深くなる場合、どうしてもindex.jsにexportを集約させたほうが楽になります。そうした、1クッションおく場合の実装はどのようなimport/exportが最適なのかを知りたかったのですが、それがわかりました。
+
+以下の通りにやると、しっかりTree Shakingが効くことがわかりました。
+
+```javascript
+// all4.js
+export { default as all4 } from './forAll4';
+
+// forAll4.js
+const all4A = () => console.log('all4A');
+
+const all4B = () => console.log('all4B');
+
+export default { all4A, all4B };
+```
+
+ちなみに、構文的に`export * as all4 from './forAll3`などのようなことはできないみたいなので、これを実現したい場合は上記のように`export default`を使う必要があります。

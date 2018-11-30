@@ -1,74 +1,144 @@
-! function (e) {
-  var n = {};
+! function (n) {
+  var t = {};
 
-  function o(t) {
-    if (n[t]) return n[t].exports;
-    var r = n[t] = {
-      i: t,
+  function o(r) {
+    if (t[r]) return t[r].exports;
+    var e = t[r] = {
+      i: r,
       l: !1,
       exports: {}
     };
-    return e[t].call(r.exports, r, r.exports, o), r.l = !0, r.exports
+    return n[r].call(e.exports, e, e.exports, o), e.l = !0, e.exports
   }
-  o.m = e, o.c = n, o.d = function (e, n, t) {
-    o.o(e, n) || Object.defineProperty(e, n, {
+  o.m = n, o.c = t, o.d = function (n, t, r) {
+    o.o(n, t) || Object.defineProperty(n, t, {
+      configurable: !1,
       enumerable: !0,
-      get: t
+      get: r
     })
-  }, o.r = function (e) {
-    "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
-      value: "Module"
-    }), Object.defineProperty(e, "__esModule", {
-      value: !0
-    })
-  }, o.t = function (e, n) {
-    if (1 & n && (e = o(e)), 8 & n) return e;
-    if (4 & n && "object" == typeof e && e && e.__esModule) return e;
-    var t = Object.create(null);
-    if (o.r(t), Object.defineProperty(t, "default", {
-        enumerable: !0,
-        value: e
-      }), 2 & n && "string" != typeof e)
-      for (var r in e) o.d(t, r, function (n) {
-        return e[n]
-      }.bind(null, r));
-    return t
-  }, o.n = function (e) {
-    var n = e && e.__esModule ? function () {
-      return e.default
+  }, o.n = function (n) {
+    var t = n && n.__esModule ? function () {
+      return n.default
     } : function () {
-      return e
+      return n
     };
-    return o.d(n, "a", n), n
-  }, o.o = function (e, n) {
-    return Object.prototype.hasOwnProperty.call(e, n)
-  }, o.p = "", o(o.s = 0)
-}([function (e, n, o) {
+    return o.d(t, "a", t), t
+  }, o.o = function (n, t) {
+    return Object.prototype.hasOwnProperty.call(n, t)
+  }, o.p = "", o(o.s = 1)
+}([function (n, t, o) {
   "use strict";
-  o.r(n);
-  var t = {};
-  o.r(t), o.d(t, "all3A", function () {
-    return l
-  }), o.d(t, "all3B", function () {
-    return u
+  o.d(t, "a", function () {
+    return r
   });
   var r = function () {
-      return console.log("soloA")
-    },
-    l = function () {
+    return console.log("soloA")
+  }
+}, function (n, t, o) {
+  "use strict";
+  Object.defineProperty(t, "__esModule", {
+    value: !0
+  });
+  var r = o(0),
+    e = o(2),
+    u = o(3),
+    c = o(5),
+    l = o(7),
+    i = o(9),
+    a = o(10),
+    f = o(11);
+  Object(r.a)(), e.a(), u.a(), u.b(), c.a.all3A(), l.a.all4A(), i.a.objectA(), a.a.object2A(), console.log(f.a.foo())
+}, function (n, t, o) {
+  "use strict";
+  o.d(t, "a", function () {
+    return r
+  });
+  var r = function () {
+    return console.log("allA")
+  }
+}, function (n, t, o) {
+  "use strict";
+  var r = o(4);
+  o.d(t, "a", function () {
+    return r.a
+  });
+  var e = o(0);
+  o.d(t, "b", function () {
+    return e.a
+  })
+}, function (n, t, o) {
+  "use strict";
+  o.d(t, "a", function () {
+    return r
+  });
+  var r = function () {
+    return console.log("all2A")
+  }
+}, function (n, t, o) {
+  "use strict";
+  var r = o(6);
+  o.d(t, "a", function () {
+    return r
+  })
+}, function (n, t, o) {
+  "use strict";
+  Object.defineProperty(t, "__esModule", {
+    value: !0
+  }), o.d(t, "all3A", function () {
+    return r
+  }), o.d(t, "all3B", function () {
+    return e
+  });
+  var r = function () {
       return console.log("all3A")
     },
-    u = function () {
+    e = function () {
       return console.log("all3B")
-    },
-    c = function () {
+    }
+}, function (n, t, o) {
+  "use strict";
+  var r = o(8);
+  o.d(t, "a", function () {
+    return r.a
+  })
+}, function (n, t, o) {
+  "use strict";
+  t.a = {
+    all4A: function () {
       return console.log("all4A")
     },
-    f = function () {
+    all4B: function () {
+      return console.log("all4B")
+    }
+  }
+}, function (n, t, o) {
+  "use strict";
+  t.a = {
+    objectA: function () {
       return console.log("objectA")
     },
-    i = function () {
+    objectB: function () {
+      return console.log("objectB")
+    }
+  }
+}, function (n, t, o) {
+  "use strict";
+  t.a = {
+    object2A: function () {
       return console.log("object2A")
-    };
-  r(), console.log("allA"), console.log("all2A"), r(), t.all3A(), c(), f(), i(), console.log("foo")
+    },
+    object2B: function () {
+      return console.log("object2B")
+    }
+  }
+}, function (n, t, o) {
+  "use strict";
+  t.a = {
+    foo: function () {
+      return "foo"
+    },
+    bar: function () {
+      return "bar"
+    }
+  }
 }]);
