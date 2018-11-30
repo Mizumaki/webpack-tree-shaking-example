@@ -1,12 +1,18 @@
-import { Row, Grid as MyGrid } from 'react-bootstrap';
-import {
-  map,
-  differenceWith,
-  divide,
-  drop,
-  dropRight,
-  dropRightWhile,
-} from 'lodash';
-import { moduleB } from './modules.js';
+import { soloA } from './solo.js';
+import * as all from './all';
+import * as all2 from './all2';
+import { default as obj } from './object';
+import obj2 from './object2';
+import obj3 from './object3';
 
-moduleB();
+soloA();
+
+all.allA();
+
+all2.allA();
+
+obj.objectA();
+
+obj2.object2A();
+
+console.log(obj3.foo());
